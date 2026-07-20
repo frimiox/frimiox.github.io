@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "App Showcase"
+version = "1.0.0"
+id = "artifacts/app-showcase"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25173
+
+[services.development]
+run = "pnpm --filter @workspace/app-showcase run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/app-showcase", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/app-showcase/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25173"
+BASE_PATH = "/"
