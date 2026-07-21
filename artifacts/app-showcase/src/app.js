@@ -28,7 +28,11 @@ const APPS = [
     tags: ["Downloader", "yt-dlp", "Android"],
     status: "live",
     author: "JunkFood02",
-    url: "https://github.com/JunkFood02/Seal",
+url:
+  "https://github.com/JunkFood02/Seal/releases/download/v1.13.1/Seal-1.13.1-universal-release.apk ",
+  /*"https://github.com/JunkFood02/Seal/releases/latest " */
+  /*
+"https://github.com/JunkFood02/Seal", */
     featured: true,
     date: "2026-01-01",
   },
