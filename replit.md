@@ -1,45 +1,58 @@
-# [Project name]
+# FrimioXTech – Apps Worth Exploring
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
-
-## Run & Operate
-
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+A curated app-showcase platform — a browseable directory of projects ("apps worth exploring") with search, category filtering, and featured sorting.
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+| Layer | Tech |
+|---|---|
+| Frontend | React 19 + Vite 7, Tailwind CSS v4, shadcn/ui, Wouter, TanStack Query |
+| Backend | Express 5 (TypeScript, ESM, esbuild) |
+| Database | PostgreSQL via Drizzle ORM |
+| Monorepo | pnpm workspaces |
 
-## Where things live
+## Workspace layout
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+```
+artifacts/
+  app-showcase/   React + Vite frontend  (preview path: /)
+  api-server/     Express API server     (preview path: /api)
+  mockup-sandbox/ Canvas component sandbox (preview path: /__mockup)
+lib/
+  db/             Drizzle ORM schema + migrations
+  api-zod/        Shared Zod validation schemas
+  api-client-react/ TanStack Query hooks (generated from OpenAPI)
+  api-spec/       OpenAPI spec + Orval codegen config
+```
 
-## Architecture decisions
+## Running the project
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+Dependencies are managed at the workspace root:
 
-## Product
+```bash
+pnpm install          # install all workspace deps
+```
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Workflows (started automatically by Replit):
+- **App Showcase** (`artifacts/app-showcase: web`) – `pnpm --filter @workspace/app-showcase run dev`
+- **API Server** (`artifacts/api-server: API Server`) – `pnpm --filter @workspace/api-server run dev`
+
+## Database
+
+The project uses Drizzle ORM with PostgreSQL. The `DATABASE_URL` secret must be set before running the API server in production. Add tables to `lib/db/src/schema/`, then push with:
+
+```bash
+pnpm --filter @workspace/db run push
+```
+
+## API codegen
+
+OpenAPI spec lives in `lib/api-spec/openapi.yaml`. To regenerate the React query hooks after editing the spec:
+
+```bash
+pnpm --filter @workspace/api-spec run codegen
+```
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+_None recorded yet._
