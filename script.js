@@ -172,3 +172,34 @@ if (pageSearch) {
     });
   });
 }
+
+// --- Bookmarks & Favorites using localStorage ---
+function getSaved(key) {
+  return JSON.parse(localStorage.getItem(key) || '[]');
+}
+function toggleSaved(key, name) {
+  let list = getSaved(key);
+  if (list.includes(name)) {
+    list = list.filter(n => n !== name);
+  } else {
+    list.push(name);
+  }
+  localStorage.setItem(key, JSON.stringify(list));
+  return list.includes(name);
+}
+
+// Render bookmarks/favorites page
+const favoritesGrid = document.getElementById('favoritesGrid');
+const bookmarksGrid = document.getElementById('bookmarksGrid');
+if (typeof APPS !== 'undefined') {
+  if (favoritesGrid) {
+    const favs = getSaved('favorites');
+    const favApps = APPS.filter(a => favs.includes(a.name));
+    favoritesGrid.innerHTML = favApps.map(appCardHTML).join('') || '<p class="sub">No favorites yet.</p>';
+  }
+  if (bookmarksGrid) {
+    const marks = getSaved('bookmarks');
+    const markApps = APPS.filter(a => marks.includes(a.name));
+    bookmarksGrid.innerHTML = markApps.map(appCardHTML).join('') || '<p class="sub">No bookmarks yet.</p>';
+  }
+}

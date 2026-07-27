@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You — FrimioXTech</title>
+  <title>Bookmarks — FrimioXTech</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,7 +20,7 @@
     <a href="apps.html">▦ Apps</a>
     <a href="tools.html">🔧 Tools</a>
     <a href="tools.html#ai">✨ AI</a>
-    <a href="you.html">👤 You</a>
+    <a href="you.html">🔖 Bookmarks</a>
   </div>
 
   <nav class="main-nav">
@@ -28,25 +28,24 @@
     <a href="apps.html" class="nav-link">▦ Apps</a>
     <a href="tools.html" class="nav-link">🔧 Tools</a>
     <a href="tools.html#ai" class="nav-link">✨ AI</a>
-    <a href="you.html" class="nav-link active">👤 You</a>
+    <a href="you.html" class="nav-link active">🔖 Bookmarks</a>
   </nav>
 
-  <section class="section" style="text-align:center; padding-top:60px;">
-    <div class="icon-box" style="width:80px;height:80px;font-size:36px;margin:0 auto 20px;">👤</div>
-    <h2>Coming Soon</h2>
-    <p class="sub" style="margin-top:10px;">Accounts, favorites, and personalized recommendations are on the way.</p>
+  <section class="section">
+    <div class="section-header"><h2>⭐ Favorites</h2></div>
+    <div class="grid-4" id="favoritesGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-header"><h2>🔖 Bookmarks</h2></div>
+    <div class="grid-4" id="bookmarksGrid"></div>
   </section>
 
   <footer>
-    <div class="footer-links">
-      <a href="more.html#about">About</a>
-      <a href="more.html#contact">Contact</a>
-      <a href="more.html#privacy">Privacy</a>
-      <a href="more.html#terms">Terms</a>
-    </div>
     <p class="footer-brand">@FrimioX</p>
   </footer>
 
+  <script src="apps-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
