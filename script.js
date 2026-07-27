@@ -1,24 +1,7 @@
-const searchInput = document.getElementById('searchInput');
-const filters = document.querySelectorAll('.filter');
-const cards = document.querySelectorAll('.app-card');
-let activeFilter = 'all';
-
-function updateVisibility() {
-  const query = searchInput.value.toLowerCase();
-  cards.forEach(card => {
-    const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
-    const matchesSearch = card.textContent.toLowerCase().includes(query);
-    card.style.display = (matchesFilter && matchesSearch) ? 'block' : 'none';
-  });
-}
-
-searchInput.addEventListener('input', updateVisibility);
-
-filters.forEach(btn => {
+document.querySelectorAll('.download-btn, .download-icon').forEach(btn => {
   btn.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    updateVisibility();
+    const original = btn.textContent;
+    btn.textContent = '✓';
+    setTimeout(() => { btn.textContent = original; }, 1500);
   });
 });
