@@ -367,3 +367,22 @@ footer {
 }
 a.download-btn, .download-btn { text-decoration: none !important; }
 .latest-apps a, .latest-apps .download-btn { text-decoration: none !important; }
+
+/* Fix all download buttons - remove underline */
+.latest-apps a[href], 
+.latest-apps .download-btn,
+a.download-btn,
+.download-btn {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* Make buttons look like real buttons */
+.latest-apps a {
+    display: inline-block;
+    background-color: #35607F;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-decoration: none !important;
+}
