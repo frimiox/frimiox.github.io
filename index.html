@@ -9,127 +9,84 @@
 </head>
 <body>
 
-  <header>
+  <header class="site-header">
     <div class="logo">FrimioX</div>
     <div class="header-icons">
-      <span class="icon">🔍</span>
-      <span class="icon">☰</span>
+      <span class="icon" id="searchToggle">🔍</span>
+      <span class="icon" id="menuToggle">☰</span>
     </div>
   </header>
 
+  <div class="search-bar" id="searchBar">
+    <input type="text" id="globalSearch" placeholder="Search apps...">
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="apps.html">▦ Apps</a>
+    <a href="tools.html">🔧 Tools</a>
+    <a href="tools.html#ai">✨ AI</a>
+    <a href="you.html">👤 You</a>
+  </div>
+
   <nav class="main-nav">
-    <a href="#" class="nav-link active">🏠 Home</a>
-    <a href="#" class="nav-link">▦ Apps</a>
-    <a href="#" class="nav-link">🔧 Tools</a>
-    <a href="#" class="nav-link">✨ AI <span class="soon">Upcoming</span></a>
-    <a href="#" class="nav-link">👤 You</a>
+    <a href="index.html" class="nav-link active">🏠 Home</a>
+    <a href="apps.html" class="nav-link">▦ Apps</a>
+    <a href="tools.html" class="nav-link">🔧 Tools</a>
+    <a href="tools.html#ai" class="nav-link">✨ AI</a>
+    <a href="you.html" class="nav-link">👤 You</a>
   </nav>
 
   <div class="chips">
-    <button class="chip">🔥 Trending</button>
-    <button class="chip">⭐ New</button>
-    <button class="chip">▶ Play</button>
-    <button class="chip">🍎 App Stores</button>
-    <button class="chip">📦 Other</button>
-    <button class="chip">⋯ More</button>
+    <a href="apps.html?sort=trending" class="chip">🔥 Trending</a>
+    <a href="apps.html?sort=new" class="chip">⭐ New</a>
+    <a href="playstore.html" class="chip">▶ Play</a>
+    <a href="appstore.html" class="chip">🍎 App Stores</a>
+    <a href="more.html" class="chip">📦 Other</a>
+    <a href="more.html" class="chip">⋯ More</a>
   </div>
 
   <section class="banner">
     <span class="featured-tag">FEATURED</span>
     <h1>Discover the<br><span class="highlight">Best Apps</span></h1>
     <p>Safe. Fast. Trusted Apps<br>All in one place.</p>
-    <button class="explore-btn">Explore Apps →</button>
+    <a href="apps.html" class="explore-btn">Explore Apps →</a>
   </section>
 
   <section class="section">
     <div class="section-header">
       <h2>📦 Featured Apps</h2>
-      <a href="#" class="view-all">View all →</a>
+      <a href="featured.html" class="view-all">View all →</a>
     </div>
-    <div class="grid-4" id="featuredGrid">
-      <div class="app-card-icon" data-name="NewPipe" data-cat="media">
-        <div class="icon-box">▶</div>
-        <h3>NewPipe</h3>
-        <p class="sub">Media</p>
-        <p class="rating">⭐ 4.8</p>
-        <button class="download-btn">Download</button>
-      </div>
-      <div class="app-card-icon" data-name="Seal" data-cat="media">
-        <div class="icon-box">🦭</div>
-        <h3>Seal</h3>
-        <p class="sub">Media</p>
-        <p class="rating">⭐ 4.6</p>
-        <button class="download-btn">Download</button>
-      </div>
-    </div>
+    <div class="grid-4" id="featuredGrid"></div>
   </section>
 
   <section class="section">
     <div class="section-header">
       <h2>🕒 Latest Apps</h2>
-      <a href="#" class="view-all">View all →</a>
+      <a href="latest.html" class="view-all">View all →</a>
     </div>
-    <div class="list" id="latestList">
-      <div class="list-item" data-name="NewPipe">
-        <div class="icon-box small">▶</div>
-        <div class="list-text">
-          <h4>NewPipe</h4>
-          <p>Free YouTube client with background play</p>
-        </div>
-        <span class="rating">⭐ 4.8</span>
-        <button class="download-icon">⬇</button>
-      </div>
-      <div class="list-item" data-name="Seal">
-        <div class="icon-box small">🦭</div>
-        <div class="list-text">
-          <h4>Seal</h4>
-          <p>Beautiful video/audio downloader</p>
-        </div>
-        <span class="rating">⭐ 4.6</span>
-        <button class="download-icon">⬇</button>
-      </div>
-    </div>
+    <div class="list" id="latestList"></div>
   </section>
 
   <section class="section">
     <div class="section-header">
       <h2>📁 Categories</h2>
-      <a href="#" class="view-all">View all →</a>
+      <a href="more.html" class="view-all">View all →</a>
     </div>
-    <div class="grid-4" id="categoriesGrid">
-      <div class="cat-card">
-        <div class="cat-icon">💬</div>
-        <h4>Communication</h4>
-        <p>1 App</p>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">🔧</div>
-        <h4>Tools</h4>
-        <p>0 Apps</p>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">▶</div>
-        <h4>Media</h4>
-        <p>2 Apps</p>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">🚀</div>
-        <h4>Productivity</h4>
-        <p>0 Apps</p>
-      </div>
-    </div>
+    <div class="grid-4" id="categoriesGrid"></div>
   </section>
 
   <footer>
     <div class="footer-links">
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="more.html#about">About</a>
+      <a href="more.html#contact">Contact</a>
+      <a href="more.html#privacy">Privacy</a>
+      <a href="more.html#terms">Terms</a>
     </div>
     <p class="footer-brand">@FrimioX</p>
   </footer>
 
+  <script src="apps-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
