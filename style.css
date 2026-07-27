@@ -365,3 +365,4 @@ footer {
   border-bottom: 2px solid hsl(197, 71%, 73%);
   padding-bottom: 12px;
 }
+a.download-btn, .download-btn { text-decoration: none !important; }
