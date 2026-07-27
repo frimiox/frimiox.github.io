@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FrimioXTech</title>
+  <title>FrimioXTech — Apps worth exploring</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,22 +11,29 @@
 
   <header>
     <div class="logo">✦ FrimioXTech</div>
+    <nav>
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#apps" class="nav-link">Apps</a>
+      <a href="#about" class="nav-link">About</a>
+    </nav>
   </header>
 
   <section class="hero">
     <span class="badge">BUILT WITH CARE</span>
     <h1>Apps worth <span class="highlight">exploring</span></h1>
     <p>A curated collection of projects — from productivity tools to creative experiments.</p>
-    <input type="text" class="search" placeholder="Search apps...">
+    <input type="text" class="search" id="searchInput" placeholder="Search apps...">
   </section>
 
-  <section class="filters">
-    <button class="filter active">All</button>
-    <button class="filter">Media</button>
+  <section class="filters" id="filters">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="media">Media</button>
   </section>
 
-  <section class="apps">
-    <div class="app-card">
+  <section class="apps" id="appsGrid">
+
+    <div class="app-card" data-category="media">
+      <div class="app-icon">▶</div>
       <h3>NewPipe</h3>
       <p>Free YouTube client with background play and downloading.</p>
       <div class="tags">
@@ -36,7 +43,8 @@
       </div>
     </div>
 
-    <div class="app-card">
+    <div class="app-card" data-category="media">
+      <div class="app-icon">🦭</div>
       <h3>Seal</h3>
       <p>Beautiful video/audio downloader powered by yt-dlp.</p>
       <div class="tags">
@@ -44,7 +52,13 @@
         <span>Downloader</span>
       </div>
     </div>
+
   </section>
 
+  <footer>
+    <p>&copy; 2026 FrimioXTech. Built with care.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
