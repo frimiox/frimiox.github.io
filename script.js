@@ -81,3 +81,29 @@ if (typeof APPS !== 'undefined') {
     `).join('');
   }
 }
+
+// Apps page — show all apps
+const allAppsGrid = document.getElementById('allAppsGrid');
+if (allAppsGrid && typeof APPS !== 'undefined') {
+  allAppsGrid.innerHTML = APPS.map(appCardHTML).join('');
+}
+
+// Tools page — show only type "tool"
+const toolsGrid = document.getElementById('toolsGrid');
+if (toolsGrid && typeof APPS !== 'undefined') {
+  const tools = APPS.filter(a => a.type === 'tool');
+  toolsGrid.innerHTML = tools.map(appCardHTML).join('');
+}
+
+// Featured page — show all (or later, a "featured:true" filter)
+const featuredAllGrid = document.getElementById('featuredAllGrid');
+if (featuredAllGrid && typeof APPS !== 'undefined') {
+  featuredAllGrid.innerHTML = APPS.map(appCardHTML).join('');
+}
+
+// Latest page — show all sorted by date
+const latestAllList = document.getElementById('latestAllList');
+if (latestAllList && typeof APPS !== 'undefined') {
+  const sorted = [...APPS].sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+  latestAllList.innerHTML = sorted.map(appListHTML).join('');
+}
