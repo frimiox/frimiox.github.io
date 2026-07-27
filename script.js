@@ -107,3 +107,42 @@ if (latestAllList && typeof APPS !== 'undefined') {
   const sorted = [...APPS].sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded));
   latestAllList.innerHTML = sorted.map(appListHTML).join('');
 }
+
+// More page — all categories
+const allCategoriesGrid = document.getElementById('allCategoriesGrid');
+if (allCategoriesGrid && typeof APPS !== 'undefined') {
+  const cats = {};
+  APPS.forEach(a => { cats[a.category] = (cats[a.category] || 0) + 1; });
+  const icons = { Media: '▶', Tools: '🔧', AI: '✨', Communication: '💬', Productivity: '🚀' };
+  allCategoriesGrid.innerHTML = Object.keys(cats).map(cat => `
+    <a href="category.html?cat=${encodeURIComponent(cat)}" class="cat-card" style="text-decoration:none;color:inherit;">
+      <div class="cat-icon">${icons[cat] || '📁'}</div>
+      <h4>${cat}</h4>
+      <p>${cats[cat]} Apps</p>
+    </a>
+  `).join('');
+}
+
+// Category page — filter by URL param
+const categoryGrid = document.getElementById('categoryGrid');
+if (categoryGrid && typeof APPS !== 'undefined') {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat') || '';
+  document.getElementById('categoryTitle').textContent = cat || 'Category';
+  const filtered = APPS.filter(a => a.category === cat);
+  categoryGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet in this category.</p>';
+}
+
+// Play Store page
+const playstoreGrid = document.getElementById('playstoreGrid');
+if (playstoreGrid && typeof APPS !== 'undefined') {
+  const filtered = APPS.filter(a => a.store === 'play' || a.store === 'fdroid');
+  playstoreGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
+}
+
+// App Store page
+const appstoreGrid = document.getElementById('appstoreGrid');
+if (appstoreGrid && typeof APPS !== 'undefined') {
+  const filtered = APPS.filter(a => a.store === 'appstore');
+  appstoreGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
+}
