@@ -146,3 +146,29 @@ if (appstoreGrid && typeof APPS !== 'undefined') {
   const filtered = APPS.filter(a => a.store === 'appstore');
   appstoreGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
 }
+
+// Tools page split: Tools vs AI
+const toolsGridEl = document.getElementById('toolsGrid');
+const aiGridEl = document.getElementById('aiGrid');
+if (typeof APPS !== 'undefined') {
+  if (toolsGridEl) {
+    const tools = APPS.filter(a => a.type === 'tool' && a.category !== 'AI');
+    toolsGridEl.innerHTML = tools.map(appCardHTML).join('') || '<p class="sub">No tools yet.</p>';
+  }
+  if (aiGridEl) {
+    const aiApps = APPS.filter(a => a.category === 'AI');
+    aiGridEl.innerHTML = aiApps.map(appCardHTML).join('') || '<p class="sub">No AI tools yet.</p>';
+  }
+}
+
+// Live search on any listing page (filters visible cards by name/tag)
+const pageSearch = document.getElementById('pageSearch');
+if (pageSearch) {
+  pageSearch.addEventListener('input', () => {
+    const query = pageSearch.value.toLowerCase();
+    document.querySelectorAll('.app-card-icon, .list-item').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(query) ? '' : 'none';
+    });
+  });
+}
