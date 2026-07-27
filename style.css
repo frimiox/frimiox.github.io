@@ -366,3 +366,4 @@ footer {
   padding-bottom: 12px;
 }
 a.download-btn, .download-btn { text-decoration: none !important; }
+.latest-apps a, .latest-apps .download-btn { text-decoration: none !important; }
