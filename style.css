@@ -365,3 +365,20 @@ footer {
   border-bottom: 2px solid hsl(197, 71%, 73%);
   padding-bottom: 12px;
 }
+
+/* Fix download icon display */
+.download-icon, 
+a[href*="download"] i,
+.download-btn i,
+button i {
+    font-size: 24px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+}
+
+/* Alternative: Use emoji if icon fails */
+.download-btn::after {
+    content: " ⬇" !important;
+    font-size: 18px;
+}
