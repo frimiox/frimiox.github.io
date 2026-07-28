@@ -293,3 +293,75 @@ footer {
   color: hsl(197, 71%, 73%);
   font-size: 13px;
 }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: hsl(240, 45%, 8%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+}
+
+.search-bar {
+  display: none;
+  padding: 0 24px 14px;
+}
+
+.search-bar.show {
+  display: block;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 1px solid hsl(207, 44%, 49%);
+  background: hsl(240, 40%, 12%);
+  color: white;
+  outline: none;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 10px 24px;
+  border-bottom: 1px solid hsl(217, 33%, 20%);
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: hsl(210, 40%, 98%);
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid hsl(217, 33%, 15%);
+}
+
+.main-nav {
+  display: flex;
+  gap: 24px;
+  padding: 0 24px 14px;
+  overflow-x: auto;
+  border-bottom: 1px solid hsl(217, 33%, 20%);
+  font-size: 14px;
+}
+
+.nav-link {
+  color: hsl(215, 20%, 65%);
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link.active {
+  color: hsl(197, 71%, 73%);
+  border-bottom: 2px solid hsl(197, 71%, 73%);
+  padding-bottom: 12px;
+}
