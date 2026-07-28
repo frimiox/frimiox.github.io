@@ -382,3 +382,8 @@ button i {
     content: " ⬇" !important;
     font-size: 18px;
 }
+
+.download-icon {
+  font-size: 20px;
+  line-height: 1;
+}
