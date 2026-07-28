@@ -619,3 +619,26 @@ body.theme-white .app-card, body.theme-white .list-item, body.theme-white header
   align-items: center;
   justify-content: center;
 }
+
+.search-bar {
+  position: relative;
+  display: block;
+}
+
+.search-bar input {
+  width: 100%;
+  padding-right: 50px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: hsl(197, 71%, 73%);
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
