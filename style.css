@@ -453,3 +453,16 @@ a.download-btn,
   justify-content: center;
   cursor: pointer;
 }
+
+.search-bar {
+  padding: 0 30px 20px 24px;
+}
+
+.search-btn {
+  right: 40px;
+}
+
+.download-icon {
+  font-size: 20px;
+  line-height: 1;
+}

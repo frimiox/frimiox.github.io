@@ -49,7 +49,7 @@ function appListHTML(app) {
         <p>${app.desc}</p>
       </div>
       <span class="rating">⭐ ${app.rating}</span>
-      <a href="${app.link}" target="_blank" class="download-icon">⭳</a>
+      <a href="${app.link}" target="_blank" class="download-icon">⬇</a>
     </div>
   `;
 }
@@ -230,5 +230,16 @@ if (pageSearchBtn && pageSearch) {
   });
   pageSearch.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') pageSearch.dispatchEvent(new Event('input'));
+  });
+}
+
+// Set AI nav link active when hash is #ai
+if (window.location.hash === '#ai') {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.getAttribute('href') === 'tools.html#ai' || link.getAttribute('href') === '#ai') {
+      link.classList.add('active');
+    } else if (link.textContent.includes('Tools') && !link.getAttribute('href').includes('#ai')) {
+      link.classList.remove('active');
+    }
   });
 }
