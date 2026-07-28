@@ -557,3 +557,11 @@ button i {
   cursor: pointer;
   flex-shrink: 0;
 }
+
+.search-bar {
+  display: none;
+}
+
+.search-bar.show {
+  display: flex;
+}
