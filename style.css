@@ -581,3 +581,11 @@ body.theme-white { background: #fff; color: #111; }
 body.theme-white .app-card, body.theme-white .list-item, body.theme-white header, body.theme-white .cat-card {
   background: #f2f2f2; border-color: #ccc; color: #111;
 }
+
+.search-bar {
+  display: none;
+}
+
+.search-bar.show {
+  display: flex;
+}
