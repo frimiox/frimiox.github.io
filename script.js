@@ -49,7 +49,7 @@ function appListHTML(app) {
         <p>${app.desc}</p>
       </div>
       <span class="rating">⭐ ${app.rating}</span>
-      <a href="${app.link}" target="_blank" class="download-icon">⬇</a>
+      <a href="${app.link}" target="_blank" class="download-icon">↓</a>
     </div>
   `;
 }
@@ -202,4 +202,33 @@ if (typeof APPS !== 'undefined') {
     const markApps = APPS.filter(a => marks.includes(a.name));
     bookmarksGrid.innerHTML = markApps.map(appCardHTML).join('') || '<p class="sub">No bookmarks yet.</p>';
   }
+}
+
+// Force scroll to #ai section on page load (fixes AI link not scrolling)
+window.addEventListener('load', () => {
+  if (window.location.hash === '#ai') {
+    setTimeout(() => {
+      const el = document.getElementById('ai');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+});
+
+// Global search: button click + Enter key
+const globalSearchBtn = document.getElementById('globalSearchBtn');
+if (globalSearchBtn && globalSearch) {
+  globalSearchBtn.addEventListener('click', () => {
+    window.location.href = 'apps.html?q=' + encodeURIComponent(globalSearch.value);
+  });
+}
+
+// Page search: button click triggers same filter as typing
+const pageSearchBtn = document.getElementById('pageSearchBtn');
+if (pageSearchBtn && pageSearch) {
+  pageSearchBtn.addEventListener('click', () => {
+    pageSearch.dispatchEvent(new Event('input'));
+  });
+  pageSearch.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') pageSearch.dispatchEvent(new Event('input'));
+  });
 }
