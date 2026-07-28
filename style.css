@@ -483,3 +483,19 @@ button i {
     content: " ⬇" !important;
     font-size: 18px;
 }
+
+/* Weyneeyn Download Icon-ka */
+.download-btn svg, 
+.download-btn i, 
+.download-btn span,
+.latest-apps .download-btn > * {
+    font-size: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* Haddii uu SVG yahay, weyneeyn dheeraad ah */
+.download-btn svg {
+    transform: scale(1.8);
+    transform-origin: center;
+}
