@@ -589,3 +589,33 @@ body.theme-white .app-card, body.theme-white .list-item, body.theme-white header
 .search-bar.show {
   display: flex;
 }
+
+.search-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.search-bar input {
+  flex: 1;
+}
+
+.search-btn {
+  background: hsl(207, 44%, 49%);
+  border: none;
+  color: white;
+  padding: 0 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#ai {
+  scroll-margin-top: 90px;
+}
+
+.download-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
