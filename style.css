@@ -499,3 +499,26 @@ button i {
     transform: scale(1.8);
     transform-origin: center;
 }
+
+.search-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: hsl(197, 71%, 73%);
+  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-bar input {
+  padding-right: 55px;
+}
