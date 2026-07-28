@@ -565,3 +565,19 @@ button i {
 .search-bar.show {
   display: flex;
 }
+
+.theme-option {
+  background: hsl(240, 40%, 12%);
+  border: 1px solid hsl(217, 33%, 20%);
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.theme-black { background: #000; }
+body.theme-gray { background: #1a1a1a; color: #e0e0e0; }
+body.theme-white { background: #fff; color: #111; }
+body.theme-white .app-card, body.theme-white .list-item, body.theme-white header, body.theme-white .cat-card {
+  background: #f2f2f2; border-color: #ccc; color: #111;
+}

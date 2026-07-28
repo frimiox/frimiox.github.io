@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Category — FrimioXTech</title>
+  <title>Settings — FrimioXTech</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,24 +24,21 @@
     <a href="settings.html">⚙️ Settings</a>
   </div>
 
-  <nav class="main-nav">
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="apps.html" class="nav-link">▦ Apps</a>
-    <a href="tools.html" class="nav-link">🔧 Tools</a>
-    <a href="tools.html#ai" class="nav-link">✨ AI</a>
-    <a href="you.html" class="nav-link">🔖 Bookmarks</a>
-  </nav>
-
   <section class="section">
-    <div class="section-header"><h2 id="categoryTitle">Category</h2></div>
-    <div class="grid-4" id="categoryGrid"></div>
+    <h2>⚙️ Theme</h2>
+    <div class="grid-4" style="margin-top:16px;">
+      <button class="theme-option" data-theme="default">Default (Navy Blue)</button>
+      <button class="theme-option" data-theme="black">Black</button>
+      <button class="theme-option" data-theme="gray">Gray</button>
+      <button class="theme-option" data-theme="white">White</button>
+      <button class="theme-option" data-theme="system">System Default</button>
+    </div>
   </section>
 
   <footer>
     <p class="footer-brand">@FrimioX</p>
   </footer>
 
-  <script src="apps-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

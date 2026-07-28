@@ -19,12 +19,6 @@ if (searchToggle) {
 // Global search redirects to apps.html with query
 const globalSearch = document.getElementById('globalSearch');
 if (globalSearch) {
-  globalSearch.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      window.location.href = 'apps.html?q=' + encodeURIComponent(globalSearch.value);
-    }
-  });
-}
 
 // Render app card (grid style)
 function appCardHTML(app) {
@@ -243,3 +237,35 @@ if (window.location.hash === '#ai') {
     }
   });
 }
+
+// Global search: Enter key works on home page too
+if (globalSearch) {
+  globalSearch.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      window.location.href = 'apps.html?q=' + encodeURIComponent(globalSearch.value);
+    }
+  });
+}
+if (pageSearch) {
+  pageSearch.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') pageSearch.dispatchEvent(new Event('input'));
+  });
+}
+
+// Theme switcher
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme && savedTheme !== 'default') {
+  document.body.classList.add('theme-' + savedTheme);
+}
+if (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  document.body.classList.add('theme-white');
+}
+
+document.querySelectorAll('.theme-option').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.body.className = document.body.className.replace(/theme-\S+/g, '');
+    const theme = btn.dataset.theme;
+    localStorage.setItem('theme', theme);
+    if (theme !== 'default') document.body.classList.add('theme-' + theme);
+  });
+});
