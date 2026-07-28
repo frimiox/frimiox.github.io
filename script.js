@@ -49,7 +49,7 @@ function appListHTML(app) {
         <p>${app.desc}</p>
       </div>
       <span class="rating">⭐ ${app.rating}</span>
-      <a href="${app.link}" target="_blank" class="download-icon">↓</a>
+      <a href="${app.link}" target="_blank" class="download-icon">⭳</a>
     </div>
   `;
 }
