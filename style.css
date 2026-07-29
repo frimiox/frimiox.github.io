@@ -96,3 +96,16 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
   max-height: 320px;
   padding: 30px 24px;
 }
+
+/* SAXIDA HERO BANNER (Final Fix) */
+.banner {
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.7)), url("hero-banner.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 400px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    border: none !important;
+    text-align: left !important;
+}
