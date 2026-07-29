@@ -56,15 +56,15 @@ footer { text-align:center; padding:30px 24px; border-top:1px solid hsl(217,33%,
 .theme-option { background:hsl(240,40%,12%); border:1px solid hsl(217,33%,20%); color:inherit; padding:16px; border-radius:10px; cursor:pointer; }
 
 body.theme-black { background:#000; color:#fff; }
-body.theme-black .app-card-icon, body.theme-black .list-item, body.theme-black .site-header, body.theme-black .cat-card, body.theme-black .chip, body.theme-black .theme-option, body.theme-black .search-bar, body.theme-black .mobile-menu, body.theme-black .banner { background:#111; border-color:#333; color:#fff; }
+body.theme-black .app-card-icon, body.theme-black .list-item, body.theme-black .site-header, body.theme-black .cat-card, body.theme-black .chip, body.theme-black .theme-option, body.theme-black .search-bar, body.theme-black .mobile-menu { background:#111; border-color:#333; color:#fff; }
 body.theme-black .main-nav, body.theme-black footer { border-color:#333; }
 
 body.theme-gray { background:#1a1a1a; color:#e0e0e0; }
-body.theme-gray .app-card-icon, body.theme-gray .list-item, body.theme-gray .site-header, body.theme-gray .cat-card, body.theme-gray .chip, body.theme-gray .theme-option, body.theme-gray .search-bar, body.theme-gray .mobile-menu, body.theme-gray .banner { background:#2a2a2a; border-color:#444; color:#e0e0e0; }
+body.theme-gray .app-card-icon, body.theme-gray .list-item, body.theme-gray .site-header, body.theme-gray .cat-card, body.theme-gray .chip, body.theme-gray .theme-option, body.theme-gray .search-bar, body.theme-gray .mobile-menu { background:#2a2a2a; border-color:#444; color:#e0e0e0; }
 body.theme-gray .main-nav, body.theme-gray footer { border-color:#444; }
 
 body.theme-white { background:#fff; color:#111; }
-body.theme-white .app-card-icon, body.theme-white .list-item, body.theme-white .site-header, body.theme-white .cat-card, body.theme-white .chip, body.theme-white .theme-option, body.theme-white .search-bar, body.theme-white .mobile-menu, body.theme-white .banner { background:#f2f2f2; border-color:#ccc; color:#111; }
+body.theme-white .app-card-icon, body.theme-white .list-item, body.theme-white .site-header, body.theme-white .cat-card, body.theme-white .chip, body.theme-white .theme-option, body.theme-white .search-bar, body.theme-white .mobile-menu { background:#f2f2f2; border-color:#ccc; color:#111; }
 body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
 
 @media (max-width: 768px) {
