@@ -230,3 +230,67 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
     text-align: center;
   }
 }
+
+.banner {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.explore-btn, .learn-more-btn {
+  background: hsl(207, 44%, 49%);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.learn-more-btn {
+  background: transparent;
+  border: 1px solid hsl(210, 40%, 90%);
+  color: white;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.explore-btn, .learn-more-btn {
+  background: hsl(207, 44%, 49%);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.learn-more-btn {
+  background: transparent;
+  border: 1px solid hsl(210, 40%, 90%);
+  color: white;
+}
