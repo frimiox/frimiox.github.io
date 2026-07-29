@@ -321,3 +321,12 @@ body.theme-light .banner {
 .theme-btn:hover {
   border-color: var(--accent);
 }
+
+/* Highlight the active theme button */
+.theme-btn.active {
+    border: 2px solid hsl(207, 44%, 49%) !important; /* Xariiq Buluug ah */
+    background: hsl(207, 44%, 49%, 0.15) !important; /* Midab Buluug fudud */
+    color: hsl(197, 71%, 73%) !important; /* Qoraal Buluug ah */
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(53, 127, 191, 0.3);
+}

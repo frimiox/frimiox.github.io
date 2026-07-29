@@ -134,3 +134,16 @@ document.querySelectorAll('.theme-option').forEach(btn => {
     if (theme !== 'default') document.body.classList.add('theme-' + theme);
   });
 });
+
+/* Highlight current theme on page load */
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('frimiox-theme') || 'default';
+    const buttons = document.querySelectorAll('.theme-btn');
+    
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick').includes("'" + savedTheme + "'")) {
+            btn.classList.add('active');
+        }
+    });
+});
