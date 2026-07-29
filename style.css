@@ -294,3 +294,8 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
   border: 1px solid hsl(210, 40%, 90%);
   color: white;
 }
+
+/* Make banner image clearer */
+.banner {
+  background: linear-gradient(90deg, rgba(10,25,47,0.4) 0%, rgba(10,25,47,0.2) 50%, transparent 100%), url("hero-banner.jpg") center/cover no-repeat !important;
+}
