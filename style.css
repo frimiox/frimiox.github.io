@@ -365,3 +365,30 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
   gap: 10px;
   flex-wrap: wrap;
 }
+
+/* Yareeyn Buttons-ka si weyn */
+.explore-btn, .learn-btn {
+  padding: 8px 16px !important; /* Ka dhig mid aad u yar */
+  font-size: 12px !important; /* Font-ka ka dhig mid yar */
+  width: auto !important;
+  display: inline-block !important;
+  min-width: 120px !important; /* Cabbir ugu yar */
+  max-width: 160px !important; /* Cabbir ugu weyn */
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Mobile: Buttons-ka ha yaraadaan */
+@media (max-width: 768px) {
+  .explore-btn, .learn-btn {
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    min-width: 100px !important;
+    max-width: 140px !important;
+  }
+}
