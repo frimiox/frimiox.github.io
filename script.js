@@ -1,148 +1,136 @@
-// Toggle mobile menu
+// Mobile menu toggle
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show');
-  });
-}
+if (menuToggle) menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('show'));
 
-// Toggle search bar
+// Search bar toggle
 const searchToggle = document.getElementById('searchToggle');
 const searchBar = document.getElementById('searchBar');
-if (searchToggle) {
-  searchToggle.addEventListener('click', () => {
-    searchBar.classList.toggle('show');
-  });
-}
+if (searchToggle) searchToggle.addEventListener('click', () => searchBar.classList.toggle('show'));
 
-// Global search redirects to apps.html with query
+// Global search (home page)
 const globalSearch = document.getElementById('globalSearch');
-if (globalSearch) {
-  globalSearch.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      window.location.href = 'apps.html?q=' + encodeURIComponent(globalSearch.value);
-    }
+const globalSearchBtn = document.getElementById('globalSearchBtn');
+function doGlobalSearch() {
+  window.location.href = 'apps.html?q=' + encodeURIComponent(globalSearch.value);
+}
+if (globalSearch) globalSearch.addEventListener('keydown', e => { if (e.key === 'Enter') doGlobalSearch(); });
+if (globalSearchBtn) globalSearchBtn.addEventListener('click', doGlobalSearch);
+
+// Page search (listing pages)
+const pageSearch = document.getElementById('pageSearch');
+const pageSearchBtn = document.getElementById('pageSearchBtn');
+function filterVisible() {
+  const query = pageSearch.value.toLowerCase();
+  document.querySelectorAll('.app-card-icon, .list-item').forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(query) ? '' : 'none';
   });
 }
+if (pageSearch) {
+  pageSearch.addEventListener('input', filterVisible);
+  pageSearch.addEventListener('keydown', e => { if (e.key === 'Enter') filterVisible(); });
+}
+if (pageSearchBtn) pageSearchBtn.addEventListener('click', filterVisible);
 
-// Render app card (grid style)
+// Card renderers
 function appCardHTML(app) {
-  return `
-    <div class="app-card-icon">
-      <div class="icon-box">${app.icon}</div>
-      <h3>${app.name}</h3>
-      <p class="sub">${app.category}</p>
-      <p class="rating">⭐ ${app.rating}</p>
-      <a href="${app.link}" target="_blank" class="download-btn">Download</a>
-    </div>
-  `;
+  return `<div class="app-card-icon">
+    <div class="icon-box">${app.icon}</div>
+    <h3>${app.name}</h3>
+    <p class="sub">${app.category}</p>
+    <p class="rating">⭐ ${app.rating}</p>
+    <a href="${app.link}" target="_blank" class="download-btn">Download</a>
+  </div>`;
 }
-
-// Render app list item (row style)
 function appListHTML(app) {
-  return `
-    <div class="list-item">
-      <div class="icon-box small">${app.icon}</div>
-      <div class="list-text">
-        <h4>${app.name}</h4>
-        <p>${app.desc}</p>
-      </div>
-      <span class="rating">⭐ ${app.rating}</span>
-      <a href="${app.link}" target="_blank" class="download-icon">⬇</a>
-    </div>
-  `;
+  return `<div class="list-item">
+    <div class="icon-box small">${app.icon}</div>
+    <div class="list-text"><h4>${app.name}</h4><p>${app.desc}</p></div>
+    <span class="rating">⭐ ${app.rating}</span>
+    <a href="${app.link}" target="_blank" class="download-icon">↓</a>
+  </div>`;
 }
 
-// Populate home page sections if present
 if (typeof APPS !== 'undefined') {
   const featuredGrid = document.getElementById('featuredGrid');
-  if (featuredGrid) {
-    featuredGrid.innerHTML = APPS.slice(0, 4).map(appCardHTML).join('');
-  }
+  if (featuredGrid) featuredGrid.innerHTML = APPS.slice(0,4).map(appCardHTML).join('');
 
   const latestList = document.getElementById('latestList');
   if (latestList) {
     const sorted = [...APPS].sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-    latestList.innerHTML = sorted.slice(0, 3).map(appListHTML).join('');
+    latestList.innerHTML = sorted.slice(0,3).map(appListHTML).join('');
   }
 
-  const categoriesGrid = document.getElementById('categoriesGrid');
-  if (categoriesGrid) {
+  const icons = { Media:'▶', Tools:'🔧', AI:'✨', Communication:'💬', Productivity:'🚀' };
+  function catCardsHTML() {
     const cats = {};
-    APPS.forEach(a => { cats[a.category] = (cats[a.category] || 0) + 1; });
-    const icons = { Media: '▶', Tools: '🔧', AI: '✨', Communication: '💬', Productivity: '🚀' };
-    categoriesGrid.innerHTML = Object.keys(cats).map(cat => `
-      <a href="category.html?cat=${encodeURIComponent(cat)}" class="cat-card" style="text-decoration:none;color:inherit;">
-        <div class="cat-icon">${icons[cat] || '📁'}</div>
-        <h4>${cat}</h4>
-        <p>${cats[cat]} Apps</p>
-      </a>
-    `).join('');
+    APPS.forEach(a => { cats[a.category] = (cats[a.category]||0)+1; });
+    return Object.keys(cats).map(cat => `
+      <a href="category.html?cat=${encodeURIComponent(cat)}" class="cat-card">
+        <div class="cat-icon">${icons[cat]||'📁'}</div><h4>${cat}</h4><p>${cats[cat]} Apps</p>
+      </a>`).join('');
   }
+  const categoriesGrid = document.getElementById('categoriesGrid');
+  if (categoriesGrid) categoriesGrid.innerHTML = catCardsHTML();
+  const allCategoriesGrid = document.getElementById('allCategoriesGrid');
+  if (allCategoriesGrid) allCategoriesGrid.innerHTML = catCardsHTML();
+
+  const allAppsGrid = document.getElementById('allAppsGrid');
+  if (allAppsGrid) allAppsGrid.innerHTML = APPS.map(appCardHTML).join('');
+
+  const toolsGrid = document.getElementById('toolsGrid');
+  if (toolsGrid) toolsGrid.innerHTML = APPS.filter(a => a.type==='tool' && a.category!=='AI').map(appCardHTML).join('') || '<p class="sub">No tools yet.</p>';
+
+  const aiGrid = document.getElementById('aiGrid');
+  if (aiGrid) aiGrid.innerHTML = APPS.filter(a => a.category==='AI').map(appCardHTML).join('') || '<p class="sub">No AI tools yet.</p>';
+
+  const featuredAllGrid = document.getElementById('featuredAllGrid');
+  if (featuredAllGrid) featuredAllGrid.innerHTML = APPS.map(appCardHTML).join('');
+
+  const latestAllList = document.getElementById('latestAllList');
+  if (latestAllList) {
+    const sorted = [...APPS].sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+    latestAllList.innerHTML = sorted.map(appListHTML).join('');
+  }
+
+  const categoryGrid = document.getElementById('categoryGrid');
+  if (categoryGrid) {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat') || '';
+    const titleEl = document.getElementById('categoryTitle');
+    if (titleEl) titleEl.textContent = cat || 'Category';
+    categoryGrid.innerHTML = APPS.filter(a => a.category===cat).map(appCardHTML).join('') || '<p class="sub">No apps yet in this category.</p>';
+  }
+
+  const playstoreGrid = document.getElementById('playstoreGrid');
+  if (playstoreGrid) playstoreGrid.innerHTML = APPS.filter(a => a.store==='play' || a.store==='fdroid').map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
+
+  const appstoreGrid = document.getElementById('appstoreGrid');
+  if (appstoreGrid) appstoreGrid.innerHTML = APPS.filter(a => a.store==='appstore').map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
+
+  function getSaved(key) { return JSON.parse(localStorage.getItem(key) || '[]'); }
+  const favoritesGrid = document.getElementById('favoritesGrid');
+  if (favoritesGrid) favoritesGrid.innerHTML = APPS.filter(a => getSaved('favorites').includes(a.name)).map(appCardHTML).join('') || '<p class="sub">No favorites yet.</p>';
+  const bookmarksGrid = document.getElementById('bookmarksGrid');
+  if (bookmarksGrid) bookmarksGrid.innerHTML = APPS.filter(a => getSaved('bookmarks').includes(a.name)).map(appCardHTML).join('') || '<p class="sub">No bookmarks yet.</p>';
 }
 
-// Apps page — show all apps
-const allAppsGrid = document.getElementById('allAppsGrid');
-if (allAppsGrid && typeof APPS !== 'undefined') {
-  allAppsGrid.innerHTML = APPS.map(appCardHTML).join('');
+// AI nav active state fix
+if (window.location.hash === '#ai') {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.getAttribute('href') === 'tools.html#ai') link.classList.add('active');
+    else if (link.getAttribute('href') === 'tools.html') link.classList.remove('active');
+  });
 }
 
-// Tools page — show only type "tool"
-const toolsGrid = document.getElementById('toolsGrid');
-if (toolsGrid && typeof APPS !== 'undefined') {
-  const tools = APPS.filter(a => a.type === 'tool');
-  toolsGrid.innerHTML = tools.map(appCardHTML).join('');
-}
-
-// Featured page — show all (or later, a "featured:true" filter)
-const featuredAllGrid = document.getElementById('featuredAllGrid');
-if (featuredAllGrid && typeof APPS !== 'undefined') {
-  featuredAllGrid.innerHTML = APPS.map(appCardHTML).join('');
-}
-
-// Latest page — show all sorted by date
-const latestAllList = document.getElementById('latestAllList');
-if (latestAllList && typeof APPS !== 'undefined') {
-  const sorted = [...APPS].sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-  latestAllList.innerHTML = sorted.map(appListHTML).join('');
-}
-
-// More page — all categories
-const allCategoriesGrid = document.getElementById('allCategoriesGrid');
-if (allCategoriesGrid && typeof APPS !== 'undefined') {
-  const cats = {};
-  APPS.forEach(a => { cats[a.category] = (cats[a.category] || 0) + 1; });
-  const icons = { Media: '▶', Tools: '🔧', AI: '✨', Communication: '💬', Productivity: '🚀' };
-  allCategoriesGrid.innerHTML = Object.keys(cats).map(cat => `
-    <a href="category.html?cat=${encodeURIComponent(cat)}" class="cat-card" style="text-decoration:none;color:inherit;">
-      <div class="cat-icon">${icons[cat] || '📁'}</div>
-      <h4>${cat}</h4>
-      <p>${cats[cat]} Apps</p>
-    </a>
-  `).join('');
-}
-
-// Category page — filter by URL param
-const categoryGrid = document.getElementById('categoryGrid');
-if (categoryGrid && typeof APPS !== 'undefined') {
-  const params = new URLSearchParams(window.location.search);
-  const cat = params.get('cat') || '';
-  document.getElementById('categoryTitle').textContent = cat || 'Category';
-  const filtered = APPS.filter(a => a.category === cat);
-  categoryGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet in this category.</p>';
-}
-
-// Play Store page
-const playstoreGrid = document.getElementById('playstoreGrid');
-if (playstoreGrid && typeof APPS !== 'undefined') {
-  const filtered = APPS.filter(a => a.store === 'play' || a.store === 'fdroid');
-  playstoreGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
-}
-
-// App Store page
-const appstoreGrid = document.getElementById('appstoreGrid');
-if (appstoreGrid && typeof APPS !== 'undefined') {
-  const filtered = APPS.filter(a => a.store === 'appstore');
-  appstoreGrid.innerHTML = filtered.map(appCardHTML).join('') || '<p class="sub">No apps yet.</p>';
-}
+// Theme switcher
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme && savedTheme !== 'default') document.body.classList.add('theme-' + savedTheme);
+document.querySelectorAll('.theme-option').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.body.className = document.body.className.replace(/theme-\S+/g, '');
+    const theme = btn.dataset.theme;
+    localStorage.setItem('theme', theme);
+    if (theme !== 'default') document.body.classList.add('theme-' + theme);
+  });
+});
