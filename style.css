@@ -299,3 +299,41 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
 .banner {
   background: linear-gradient(90deg, rgba(10,25,47,0.4) 0%, rgba(10,25,47,0.2) 50%, transparent 100%), url("hero-banner.jpg") center/cover no-repeat !important;
 }
+
+/* Yareeyn Zoom-ka Sawirka & Cabbirka Qoraalka */
+.banner {
+  min-height: 280px !important; /* Yareeyn dhererka si sawirku u yaraado */
+  background-size: 110% auto !important; /* Zoom yar */
+  background-position: right center !important; /* Sawirka dhinaca midig ka eeg */
+}
+
+/* Yareeyn qoraalka */
+.banner h1 {
+  font-size: 22px !important; /* Ka yareey 32px → 22px */
+  margin: 8px 0 !important;
+}
+
+.banner p {
+  font-size: 13px !important; /* Ka yareey 16px → 13px */
+  margin-bottom: 15px !important;
+}
+
+/* Yareeyn buttons-ka */
+.explore-btn, .learn-btn {
+  padding: 10px 20px !important; /* Ka yareey padding-ka */
+  font-size: 14px !important; /* Ka yareey font-ka */
+  width: auto !important; /* Ha buuxin screen-ka */
+  display: inline-block !important;
+}
+
+.banner-buttons {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+/* TRUSTED tag yareeyn */
+.featured-tag {
+  font-size: 10px !important;
+  padding: 4px 12px !important;
+}
