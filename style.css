@@ -109,3 +109,71 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
     border: none !important;
     text-align: left !important;
 }
+
+.banner {
+  min-height: 380px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: right center;
+}
+
+.banner::before {
+  content: '';
+}
+
+.featured-tag {
+  font-size: 10px;
+  padding: 3px 10px;
+}
+
+.banner h1 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.banner p {
+  line-height: 1.6;
+  max-width: 320px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.explore-btn, .learn-more-btn {
+  border-radius: 16px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.learn-more-btn {
+  background: transparent;
+  border: 1px solid hsl(210,40%,90%);
+  color: white;
+  text-decoration: none;
+}
+
+.section:first-of-type {
+  padding-top: 20px;
+}
+
+.view-all {
+  font-size: 12px;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.header-icons .icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
