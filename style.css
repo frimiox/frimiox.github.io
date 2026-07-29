@@ -72,3 +72,7 @@ body.theme-gray .main-nav, body.theme-gray footer { border-color:#444; }
 body.theme-white { background:#fff; color:#111; }
 body.theme-white .app-card-icon, body.theme-white .list-item, body.theme-white .site-header, body.theme-white .cat-card, body.theme-white .chip, body.theme-white .theme-option, body.theme-white .search-bar, body.theme-white .mobile-menu, body.theme-white .banner { background:#f2f2f2; border-color:#ccc; color:#111; }
 body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
+
+@media (max-width: 768px) {
+  .main-nav { display: none; }
+}
