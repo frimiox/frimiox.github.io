@@ -177,3 +177,56 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
   align-items: center;
   justify-content: center;
 }
+
+/* Fix Learn More button styling */
+.learn-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 10px;
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 15px;
+  display: inline-block;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.learn-btn:hover {
+  background: white;
+  color: hsl(207, 44%, 49%);
+}
+
+/* Buttons container */
+.banner-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Fix TRUSTED tag */
+.featured-tag {
+  background: linear-gradient(135deg, hsl(207, 44%, 49%), hsl(197, 71%, 73%));
+  color: white;
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .banner-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .learn-btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
