@@ -130,20 +130,20 @@ document.querySelectorAll('.theme-option').forEach(btn => {
   btn.addEventListener('click', () => {
     document.body.className = document.body.className.replace(/theme-\S+/g, '');
     const theme = btn.dataset.theme;
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('frimiox-theme', theme);
     if (theme !== 'default') document.body.classList.add('theme-' + theme);
+    updateActiveThemeButton(theme);
   });
 });
 
-/* Highlight current theme on page load */
+function updateActiveThemeButton(activeTheme) {
+  document.querySelectorAll('.theme-option').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.theme === activeTheme) btn.classList.add('active');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('frimiox-theme') || 'default';
-    const buttons = document.querySelectorAll('.theme-btn');
-    
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick').includes("'" + savedTheme + "'")) {
-            btn.classList.add('active');
-        }
-    });
+  const savedTheme = localStorage.getItem('frimiox-theme') || 'default';
+  updateActiveThemeButton(savedTheme);
 });
