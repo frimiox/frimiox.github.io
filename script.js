@@ -98,8 +98,13 @@ if (typeof APPS !== 'undefined') {
     const params = new URLSearchParams(window.location.search);
     const cat = params.get('cat') || '';
     const titleEl = document.getElementById('categoryTitle');
-    if (titleEl) titleEl.textContent = cat || 'Category';
-    categoryGrid.innerHTML = APPS.filter(a => a.category===cat).map(appCardHTML).join('') || '<p class="sub">No apps yet in this category.</p>';
+    if (cat) {
+      if (titleEl) titleEl.textContent = cat;
+      categoryGrid.innerHTML = APPS.filter(a => a.category===cat).map(appCardHTML).join('') || '<p class="sub">No apps yet in this category.</p>';
+    } else {
+      if (titleEl) titleEl.textContent = 'All Categories';
+      categoryGrid.innerHTML = catCardsHTML();
+    }
   }
 
   const playstoreGrid = document.getElementById('playstoreGrid');
