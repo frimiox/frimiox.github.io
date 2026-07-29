@@ -239,3 +239,85 @@ body.theme-light .banner {
 .theme-btn:hover {
   border-color: var(--accent);
 }
+
+/* ============================== */
+/* 3 PROFESSIONAL THEMES SYSTEM   */
+/* ============================== */
+
+/* DEFAULT THEME (Navy Blue) - 10/10 */
+body {
+  --bg-primary: hsl(240, 45%, 8%);
+  --bg-secondary: hsl(240, 40%, 12%);
+  --text-primary: hsl(210, 40%, 98%);
+  --text-secondary: hsl(215, 20%, 65%);
+  --accent: hsl(207, 44%, 49%);
+  --border: hsl(217, 33%, 20%);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* MIDNIGHT BLACK THEME - 9/10 */
+body.theme-black {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent: hsl(207, 44%, 49%);
+  --border: #222222;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* LIGHT MODE THEME - 10/10 */
+body.theme-light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --accent: hsl(207, 44%, 49%);
+  --border: #e0e0e0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Apply variables to all elements */
+body.theme-black .app-card-icon,
+body.theme-black .list-item,
+body.theme-black .cat-card,
+body.theme-black .chip,
+body.theme-black .banner {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+body.theme-light .app-card-icon,
+body.theme-light .list-item,
+body.theme-light .cat-card,
+body.theme-light .chip,
+body.theme-light .banner {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+/* Theme Buttons Styling */
+.theme-btn {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.theme-btn.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(53, 127, 191, 0.2);
+}
+
+.theme-btn:hover {
+  border-color: var(--accent);
+}
