@@ -1,7 +1,21 @@
 // Mobile menu toggle
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
-if (menuToggle) menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('show'));
+const menuOverlay = document.getElementById('menuOverlay');
+function closeMobileMenu() {
+  mobileMenu.classList.remove('show');
+  if (menuOverlay) menuOverlay.classList.remove('show');
+  if (menuToggle) menuToggle.textContent = '☰';
+}
+function openMobileMenu() {
+  mobileMenu.classList.add('show');
+  if (menuOverlay) menuOverlay.classList.add('show');
+  if (menuToggle) menuToggle.textContent = '✕';
+}
+if (menuToggle) menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.contains('show') ? closeMobileMenu() : openMobileMenu();
+});
+if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu);
 
 // Search bar toggle
 const searchToggle = document.getElementById('searchToggle');
