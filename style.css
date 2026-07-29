@@ -88,3 +88,11 @@ body.theme-white .main-nav, body.theme-white footer { border-color:#ccc; }
   background-size: cover;
   background-position: center;
 }
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  min-height: 220px;
+  max-height: 320px;
+  padding: 30px 24px;
+}
