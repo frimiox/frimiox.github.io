@@ -330,3 +330,38 @@ body.theme-light .banner {
     font-weight: bold;
     box-shadow: 0 0 10px rgba(53, 127, 191, 0.3);
 }
+
+.theme-option.active {
+  border: 2px solid hsl(197,71%,73%);
+  background: hsl(207,44%,20%);
+  color: hsl(197,71%,90%);
+  font-weight: bold;
+  position: relative;
+}
+
+.theme-option.active::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: hsl(197,71%,73%);
+  font-size: 14px;
+}
+
+body.theme-black .theme-option.active {
+  border-color: hsl(197,71%,60%);
+  background: #1a3a4a;
+  color: #fff;
+}
+
+body.theme-gray .theme-option.active {
+  border-color: hsl(197,71%,60%);
+  background: #2a4a52;
+  color: #fff;
+}
+
+body.theme-white .theme-option.active {
+  border-color: hsl(207,44%,49%);
+  background: #d6ecf7;
+  color: #111;
+}
