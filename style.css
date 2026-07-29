@@ -376,18 +376,18 @@ body.theme-white .theme-option.active {
 .mobile-menu {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   height: 100vh;
   width: 260px;
   background: hsl(240,45%,8%);
   flex-direction: column;
   padding: 70px 20px 20px;
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: transform 0.3s ease;
   z-index: 200;
   overflow-y: auto;
   border-bottom: none;
-  border-right: 1px solid hsl(217,33%,20%);
+  border-left: 1px solid hsl(217,33%,20%);
 }
 .mobile-menu.show {
   display: flex;
