@@ -365,3 +365,9 @@ footer {
   border-bottom: 2px solid hsl(197, 71%, 73%);
   padding-bottom: 12px;
 }
+
+
+
+@media (max-width: 768px) {
+  .main-nav { display: flex; }
+}
