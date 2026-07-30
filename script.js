@@ -142,9 +142,6 @@ if (window.location.hash === '#ai') {
   });
 }
 
-// Theme switcher
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme && savedTheme !== 'default') document.body.classList.add('theme-' + savedTheme);
 document.querySelectorAll('.theme-option').forEach(btn => {
   btn.addEventListener('click', () => {
     document.body.className = document.body.className.replace(/theme-\S+/g, '');
@@ -162,7 +159,13 @@ function updateActiveThemeButton(activeTheme) {
   });
 }
 
+function applyTheme(theme) {
+  document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+  if (theme !== 'default') document.body.classList.add('theme-' + theme);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const savedTheme = localStorage.getItem('frimiox-theme') || 'default';
+  applyTheme(savedTheme);
   updateActiveThemeButton(savedTheme);
 });
