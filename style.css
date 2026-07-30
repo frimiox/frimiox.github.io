@@ -447,3 +447,47 @@ body.theme-white .theme-option.active {
 .mobile-menu.show a:nth-child(8) { transition-delay: 0.35s; }
 
 body.theme-white .menu-header span { color: hsl(207,44%,49%); }
+
+/* Page load fade-in */
+body {
+  animation: pageFadeIn 0.4s ease;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Smooth theme switching */
+body, .banner, .app-card-icon, .list-item, .site-header, .cat-card, .chip, .theme-option, .search-bar, .mobile-menu {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Button tap feedback */
+.explore-btn, .learn-more-btn, .download-btn, .download-icon, .theme-option, .chip {
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.explore-btn:active, .learn-more-btn:active, .download-btn:active, .download-icon:active, .theme-option:active, .chip:active {
+  transform: scale(0.96);
+}
+
+/* Card fade-in on load */
+.app-card-icon, .list-item, .cat-card {
+  animation: cardFadeIn 0.5s ease both;
+}
+.grid-4 .app-card-icon:nth-child(1), .list .list-item:nth-child(1) { animation-delay: 0.05s; }
+.grid-4 .app-card-icon:nth-child(2), .list .list-item:nth-child(2) { animation-delay: 0.1s; }
+.grid-4 .app-card-icon:nth-child(3), .list .list-item:nth-child(3) { animation-delay: 0.15s; }
+.grid-4 .app-card-icon:nth-child(4), .list .list-item:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card tap feedback */
+.app-card-icon, .list-item, .cat-card {
+  transition: transform 0.15s ease;
+}
+.app-card-icon:active, .list-item:active, .cat-card:active {
+  transform: scale(0.98);
+}
